@@ -8,105 +8,88 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     String tmp="";
+    TextView txt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        txt=(TextView) findViewById(R.id.tmp);
     }
     public void button1(View view){
         tmp+=1;
-        TextView txt=(TextView) findViewById(R.id.tmp);
         txt.setText(tmp);
     }
     public void button2(View view){
         tmp+=2;
-        TextView txt=(TextView) findViewById(R.id.tmp);
         txt.setText(tmp);
     }
     public void button3(View view){
         tmp+=3;
-        TextView txt=(TextView) findViewById(R.id.tmp);
         txt.setText(tmp);
     }
     public void button4(View view){
         tmp+=4;
-        TextView txt=(TextView) findViewById(R.id.tmp);
         txt.setText(tmp);
     }
     public void button5(View view){
         tmp+=5;
-        TextView txt=(TextView) findViewById(R.id.tmp);
         txt.setText(tmp);
     }
     public void button6(View view){
         tmp+=6;
-        TextView txt=(TextView) findViewById(R.id.tmp);
         txt.setText(tmp);
     }
     public void button7(View view){
         tmp+=7;
-        TextView txt=(TextView) findViewById(R.id.tmp);
         txt.setText(tmp);
     }
     public void button8(View view){
         tmp+=8;
-        TextView txt=(TextView) findViewById(R.id.tmp);
         txt.setText(tmp);
     }
     public void button9(View view){
         tmp+=9;
-        TextView txt=(TextView) findViewById(R.id.tmp);
         txt.setText(tmp);
     }
     public void button0(View view){
         tmp+=0;
-        TextView txt=(TextView) findViewById(R.id.tmp);
         txt.setText(tmp);
     }
     public void buttonplus(View view){
         tmp+="+";
-        TextView txt=(TextView) findViewById(R.id.tmp);
         txt.setText(tmp);
     }
     public void buttonminus(View view){
         tmp+="-";
-        TextView txt=(TextView) findViewById(R.id.tmp);
         txt.setText(tmp);
     }
     public void buttonmul(View view){
         tmp+="*";
-        TextView txt=(TextView) findViewById(R.id.tmp);
         txt.setText(tmp);
     }
     public void buttondiv(View view){
         tmp+="/";
-        TextView txt=(TextView) findViewById(R.id.tmp);
         txt.setText(tmp);
     }
     public void buttondot(View view){
         tmp+=".";
-        TextView txt=(TextView) findViewById(R.id.tmp);
         txt.setText(tmp);
     }
     public void buttonlb(View view){
         tmp+="(";
-        TextView txt=(TextView) findViewById(R.id.tmp);
         txt.setText(tmp);
     }
     public void buttonrb(View view){
         tmp+=")";
-        TextView txt=(TextView) findViewById(R.id.tmp);
         txt.setText(tmp);
     }
     public void buttonclear(View view){
         tmp=new String("");
-        TextView txt=(TextView) findViewById(R.id.tmp);
         txt.setText(tmp);
     }
     public void buttondel(View view){
         try{
             tmp=tmp.substring(0,tmp.length()-1);
-            TextView txt=(TextView) findViewById(R.id.tmp);
             txt.setText(tmp);
         }catch(Exception e){}
     }
@@ -116,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
     public void buttonequal(View view){
+        TextView txt=(TextView) findViewById(R.id.result);
         try{
             String temp=tmp+"=";
             String t=tmp;
@@ -143,7 +127,6 @@ public class MainActivity extends AppCompatActivity {
                                 case'-':number[h]-=number[h+1];break;
                                 case'*':number[h]*=number[h+1];break;
                                 case'/':if(number[h+1]==0){
-                                    TextView txt=(TextView) findViewById(R.id.result);
                                     txt.setText("Error");
                                     Toast.makeText(MainActivity.this,"Can't divide 0!", Toast.LENGTH_LONG).show();
                                     return;
@@ -159,7 +142,6 @@ public class MainActivity extends AppCompatActivity {
                                 case'-':number[h]-=number[h+1];break;
                                 case'*':number[h]*=number[h+1];break;
                                 case'/':if(number[h+1]==0){
-                                    TextView txt=(TextView) findViewById(R.id.result);
                                     txt.setText("Error");
                                     Toast.makeText(MainActivity.this,"Can't divide 0!", Toast.LENGTH_LONG).show();
                                     return;
@@ -172,7 +154,6 @@ public class MainActivity extends AppCompatActivity {
                     i++;
                 }while(i<t.length()&&t.charAt(i-1)==')');
             }
-            TextView txt=(TextView) findViewById(R.id.result);
             String s=Double.toString(number[0]);
             s=s.replaceAll("0+?$","");
             s=s.replaceAll("[.]$","");
@@ -180,7 +161,6 @@ public class MainActivity extends AppCompatActivity {
             tt.setText(temp);
             txt.setText(s);
         }catch(Exception e){
-            TextView txt=(TextView) findViewById(R.id.result);
             txt.setText("Error");
         }
     }
